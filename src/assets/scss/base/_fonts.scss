@@ -1,0 +1,10 @@
+:root {
+  --font-family-main: 'Inter', sans-serif;
+}
+
+$mainFont: var(--font-family-main);
+
+body {
+  font-family: $mainFont;
+  color: $black;
+}

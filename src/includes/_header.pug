@@ -1,0 +1,32 @@
+include _mixins
+
+block header
+    header#header.header
+        .container
+            .header__inner
+                .header__logo
+                    +img('logo.svg')
+                .header__nav
+                    .close-btn#closeBtn
+                        +img('close.svg')
+                    nav
+                        ul
+                            li
+                                a(href='javascript:void(0)') О нас
+                            li
+                                a(href='javascript:void(0)') магазины
+                            li
+                                a(href='javascript:void(0)') рестораны и кафе
+                            li
+                                a(href='javascript:void(0)') развлечения
+                            li
+                                a(href='javascript:void(0)') СХЕМА ТЦ
+                            li
+                                a(href='javascript:void(0)') КОНТАКТЫ
+                .header__actions
+                    .header__call-button
+                        button.btn заказать звонок
+                    .header__call-image
+                        +img('phone.svg')
+                    .header__burger#headerMenuToggle
+                        +img('menu.svg')

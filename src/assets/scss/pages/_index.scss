@@ -1,0 +1,23 @@
+.shops__slider.swiper {
+  .swiper-slide {
+    //aspect-ratio: 1;
+    //width: 560px;
+    //height: 560px;
+    //width: calc(100% / 12 * 3);
+    &-active {
+      //width: 688px;
+      //height: 688px;
+      //width: calc(100vw / 12 * 6);
+      //height: 688px;
+    }
+  }
+}
+.shops__image {
+  aspect-ratio: 1;
+//  height: 560px;
+  .swiper-slide-active & {
+    //height: 688px;
+    aspect-ratio: 0.8;
+  }
+  transition: 1s
+}
