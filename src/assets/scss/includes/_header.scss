@@ -21,10 +21,14 @@
   }
 
   &__nav {
+    position: fixed;
+    transition-property: all;
+    transition-duration: .5s;
+    width: 100%;
+    top: 0;
+    left: 0;
     display: none;
-    position: absolute;
-    transition: .5s ease;
-    top: -100%;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
     @include breakpoint(lg) {
       position: static;
@@ -34,7 +38,11 @@
     ul {
       @include flexAlignCenter;
       gap: 40px;
-      transition: transform .5s ease;
+
+
+      @include breakpoint(lg) {
+        @include flexCenterCenter;
+      }
 
       li {
         a {
@@ -55,22 +63,21 @@
       display: none;
     }
 
-
-
     // Открытое меню
     &.active {
-      display: grid;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
       gap: 64px;
       background: $white;
       padding: 14px 10px;
-      position: absolute;
-      top: 0;
-      //left: 0;
-      //right: 0;
-      //bottom: 0;
-      z-index: 1;
-      transform: translateY(20px);
-      transition: transform .5s ease;
+      height: 100%;
+      z-index: 2;
+
+      @include breakpoint(md) {
+        padding: 24px 20px;
+      }
+
       ul {
         display: grid;
         gap: 28px;
@@ -92,11 +99,10 @@
       }
 
       .close-btn {
-        justify-self: flex-end;
+        align-self: self-end;
         width: 18px;
         height: 18px;
         display: inline-block;
-        align-content: flex-end;
       }
     }
   }
@@ -107,8 +113,6 @@
     @include breakpoint(md) {
       display: block;
     }
-
-
   }
 
   &__call-image {

@@ -45,7 +45,7 @@
     "jquery-ui": "^1.13.2",
     "jquery-validation": "^1.19.5",
     "sass": "^1.68.0",
-    "swiper": "^10.3.1",
+    "swiper": "^8.4.7",
     "webpack": "^5.88.2",
     "webpack-stream": "^6.1.2",
     "ymaps-touch-scroll": "^2.2.0"

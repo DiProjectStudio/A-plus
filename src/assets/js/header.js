@@ -16,5 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-
+    $('.slider').on('click', function() {
+        $(this).toggleClass('slider-closed');
+    });
 })

@@ -8,8 +8,18 @@ extends includes/_page
 
 block main
     section.main
-        .container
-
+            .main__image
+                +img('main.jpg')
+                .main__inner
+                    .container
+                        .main__text
+                            div
+                                .text__location
+                                    +img('location.svg')
+                                    p Одна минута от м. Кузьминки
+                                p.text__title.text__title-first ваше пространство
+                            p.text__title.text__title-second для бизнеса и отдыха
+                            p.text__description Уникальные возможности для арендаторов и незабываемые впечатления для посетителей
 
 
 
@@ -28,12 +38,10 @@ block main
     //                    +img('1.jpg')
     //            .swiper-slide
     //                .shops__image
-    //                    +img('2.jpg')
+    //                    +img('1.jpg')
     //            .swiper-slide
     //                .shops__image
-    //                    +img('3.jpg')
-    //
-    //
+    //                    +img('1.jpg')
     //
     //
     //
