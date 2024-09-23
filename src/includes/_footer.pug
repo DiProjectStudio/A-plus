@@ -1,16 +1,47 @@
+include _mixins
+
 block footer
     footer#footer.footer
         .container
             .footer__inner
+                .footer__top
+                    a(href='#').footer__logo
+                        +img('logo.svg')
+                    .footer__nav
+                        .footer__nav-title разделы
+                        nav
+                            ul
+                                li
+                                    a(href='#concepts') О нас
+                                li
+                                    a(href='#shops') магазины
+                                li
+                                    a(href='#entertainments') рестораны и кафе
+                                li
+                                    a(href='#others') развлечения
+                                li
+                                    a(href='#scheme') СХЕМА ТЦ
+                                li
+                                    a(href='#contacts') КОНТАКТЫ
+                    .footer__socials
+                        .social__item
+                            noindex
+                                a(href='javascript:void(0)' target="_blanc" rel="nofollow")
+                                    +img('telegram.svg')
+                        .social__item
+                            noindex
+                                a(href='javascript:void(0)' target="_blanc" rel="nofollow")
+                                    +img('instagram.svg')
+                        .social__item
+                            noindex
+                                a(href='javascript:void(0)' target="_blanc" rel="nofollow")
+                                    +img('whatsapp.svg')
 
+                .footer__bottom
+                    .footer__policy
+                        a(href="policy.html").footer__title.link.link--white-opacity Политика конфиденциальности
+                    .footer__company © АО "АВК" 2024. Все права защищены
+                    .footer__devs
+                        a(href="https://di-project.studio/") Разработка сайта:
+                        span  Di-Project.Studio
 
-
-
-                //.footer__bottom
-                //    .footer__policy
-                //        a(href="policy.html").footer__title.link.link--white-opacity Политика конфиденциальности
-                //
-                //    .footer__devs
-                //        a(href="https://di-project.studio/") Разработка сайта:
-                //        span  Di-Project.Studio
-                //    .footer__company

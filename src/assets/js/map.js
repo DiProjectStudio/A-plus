@@ -24,7 +24,7 @@ $(document).ready(function () {
                         // iconLayout: 'default#image',
                         // iconImageHref: 'assets/images/icon_pointmark.svg',
                         // iconImageSize: [40, 40],
-                        iconContent: 'Управление механизации 333'
+                        iconContent: 'Торговый центр А+'
                     },
                     {
                         preset: 'islands#blueStretchyIcon'
@@ -40,7 +40,7 @@ $(document).ready(function () {
         // Инициализация карты при загрузке страницы
         initMap();
 
-        // Обработчик изменения размера окна, иницализация карты снова
+        // Обработчик изменения размера окна, инициализация карты снова
         $(window).resize(function () {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function () {

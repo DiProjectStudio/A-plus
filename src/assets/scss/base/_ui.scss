@@ -24,8 +24,8 @@ body b {
   height: 0;
 
   @include breakpoint(lg) {
-    width: 8px;
-    height: 10px;
+    //width: 20px;
+    //height: 10px;
   }
 }
 
@@ -110,7 +110,64 @@ li {
 /// INPUTS
 /////////////////////
 
+.input {
+  border: 0;
+  outline: none;
+  color: $black;
+  font-size: 14px;
+  line-height: 140%; /* 19.6px */
+  padding: 14px 0 6px;
+  border-bottom: 1px solid $black;
 
+  @include breakpoint(lg) {
+    font-size: 16px;
+  }
+  @include breakpoint(xl) {
+    font-size: 20px;
+  }
+
+  &::placeholder {
+    color: $black;
+    font-size: 14px;
+    @include breakpoint(lg) {
+      font-size: 16px;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 20px;
+    }
+  }
+}
+
+.custom-text-area {
+  border: 0;
+  outline: none;
+  padding-top: 14px;
+  color: $black;
+  font-size: 14px;
+  line-height: 140%; /* 19.6px */
+  resize: none;
+  border-bottom: 1px solid $black;
+
+  @include breakpoint(lg) {
+    font-size: 16px;
+  }
+  @include breakpoint(xl) {
+    font-size: 20px;
+  }
+
+  &::placeholder {
+    color: $black;
+    font-size: 14px;
+    @include breakpoint(lg) {
+      font-size: 16px;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 20px;
+    }
+  }
+}
 
 /////////////////////
 /// BUTTONS
@@ -134,6 +191,7 @@ li {
   &:hover {
     background-color: $red-hover;
   }
+
   &:focus {
     background-color: $red-hover;
   }
@@ -200,61 +258,61 @@ a {
 /////////////////////
 
 
-.swiper-pagination {
-  align-self: center;
-  background-color: transparent;
-  height: 4px;
-  width: 61px;
-  @include flexCenterCenter;
-  position: absolute;
-  --swiper-pagination-bottom: 24px;
-}
+//.swiper-pagination {
+//  align-self: center;
+//  background-color: transparent;
+//  height: 4px;
+//  width: 61px;
+//  @include flexCenterCenter;
+//  position: absolute;
+//  --swiper-pagination-bottom: 24px;
+//}
+//
+//.swiper-pagination-bullet {
+//  --swiper-pagination-bullet-horizontal-gap: 7px;
+//  --swiper-pagination-bullet-border-radius: 0;
+//  --swiper-pagination-bullet-height: 4px;
+//  --swiper-pagination-bullet-width: 60px;
+//  --swiper-pagination-bullet-inactive-opacity: 1;
+//  //background: $opacity-white-72;
+//
+//  @include breakpoint(md) {
+//    --swiper-pagination-bullet-horizontal-gap: 14px;
+//  }
+//  @include breakpoint(lg) {
+//    --swiper-pagination-bullet-horizontal-gap: 16px;
+//  }
+//
+//  &:hover {
+//    background: $white;
+//
+//    .swiper-pagination-bullet-active {
+//      //background: $opacity-pink-72;
+//    }
+//  }
+//
+//  &.swiper-pagination-bullet-active {
+//    //background: $pink;
+//  }
+//}
+//
+//.swiper-nav {
+//  position: absolute;
+//  @include flexAlignCenter;
+//  z-index: 1;
+//  gap: 8px;
+//
+//  @include breakpoint(md) {
+//    gap: 20px;
+//  }
+//  @include breakpoint(xl) {
+//    gap: 40px;
+//  }
 
-.swiper-pagination-bullet {
-  --swiper-pagination-bullet-horizontal-gap: 7px;
-  --swiper-pagination-bullet-border-radius: 0;
-  --swiper-pagination-bullet-height: 4px;
-  --swiper-pagination-bullet-width: 60px;
-  --swiper-pagination-bullet-inactive-opacity: 1;
-  //background: $opacity-white-72;
-
-  @include breakpoint(md) {
-    --swiper-pagination-bullet-horizontal-gap: 14px;
-  }
-  @include breakpoint(lg) {
-    --swiper-pagination-bullet-horizontal-gap: 16px;
-  }
-
-  &:hover {
-    background: $white;
-
-    .swiper-pagination-bullet-active {
-      //background: $opacity-pink-72;
-    }
-  }
-
-  &.swiper-pagination-bullet-active {
-    //background: $pink;
-  }
-}
-
-.swiper-nav {
-  position: absolute;
-  @include flexAlignCenter;
-  z-index: 1;
-  gap: 8px;
-
-  @include breakpoint(md) {
-    gap: 20px;
-  }
-  @include breakpoint(xl) {
-    gap: 40px;
-  }
-
-  .swiper-nav-arrow {
-    width: 60px;
-    height: 56px;
-    cursor: pointer;
-    @include flexCenterCenter;
-  }
-}
+//  .swiper-nav-arrow {
+//    width: 60px;
+//    height: 56px;
+//    cursor: pointer;
+//    @include flexCenterCenter;
+//  }
+//}

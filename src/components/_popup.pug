@@ -2,29 +2,18 @@ include ../includes/_mixins
 block popups
 
     // ПОПАП "ОСТАВИТЬ ЗАЯВКУ"
-    //#popup-request.popup
-    //    input.hidden-input
-    //    .popup__title Оставить заявку
-    //    .popup__request-form
-    //        .popup__inputs
-    //            .popup__input
-    //                input(type='text' placeholder='Ваше имя*')
-    //            .popup__input.phone-mask
-    //                input(type='text' placeholder='Ваш телефон*')
-    //            .popup__input
-    //                input(type='text' placeholder='Электронная почта')
-    //            .popup__input
-    //                textarea(placeholder='Комментарий к заявке')
-    //        .button
-    //            a.btn.btn-orange.btn-with-arrow.close-popup(data-fancybox data-src='#popup-success-request')
-    //                .btn-text Отправить
-    //                .btn-arrow
-    //                    +img('arrow-right.svg')
-    //            .agree Отправляя данные, вы соглашаетесь с политикой конфиденциальности, на сбор и обработку персональных данных.
-    //
+    #popup-request.popup
+        .popup__request-form
+            .popup__inputs
+                .popup__input
+                    input(type='text' placeholder='Ваше имя').input
+                .popup__input
+                    input(type='text' placeholder='Мобильный телефон*').input.phone-mask
+            .popup__bottom
+                button.btn.btn-orange.btn-with-arrow.close-popup(data-fancybox data-src='#popup-success-request') Отправить
+                .popup__agree Нажимая на кнопку «Отправить», вы соглашаетесь с обработкой ваших персональных данных
+
     //// ПОПАП "УСПЕШНО - ОБРАТНЫЙ ЗВОНОК"
-    //#popup-success-request.popup.popup-success
-    //    .popup__title Ваша заявка успешно отправлена
-    //    .popup__subtitle Наши менеджеры свяжутся с вами в ближайшее время
-    //    .popup-actions
-    //        a(href='/').btn.btn-orange.btn-with-arrow Вернуться на главную
+    #popup-success-request.popup.popup-success
+        .popup__title Спасибо за обращение
+        .popup__subtitle Мы свяжемся с вами в ближайшее время!

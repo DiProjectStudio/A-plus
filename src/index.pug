@@ -1,7 +1,7 @@
 ---
 title: 'Страница | Главная'
 bodyClass: main-page
-//yandexMap: true
+yandexMap: true
 ---
 
 extends includes/_page
@@ -21,7 +21,7 @@ block main
                             p.text__title.text__title-second для бизнеса и отдыха
                             p.text__description Уникальные возможности для арендаторов и незабываемые впечатления для посетителей
 
-    section.concepts
+    section.concepts#concepts
         .container
             .concepts__inner
                 .concepts__title.section-title
@@ -75,35 +75,184 @@ block main
                                 span Банный комплекс «Наши бани»
                     .base__item.base__item-small
                         +img('base-small-1.jpg')
+                    .base__item.base__item-small
                         +img('base-small-2.jpg')
                     .base__item.base__item-big
                         +img('base-big.jpg')
 
+    section.about
+        .container
+            .about__inner
+                .about__grid
+                    .about__text-items
+                        .text-item
+                            .text-item__title Главная особенность проекта
+                            .text-item__description Решение основного угла, который является акцентным и видовым. Импосты угловой части причудливо пересекаются и создают эффект плетения, которое врывается в спокойный фасад здания
+                        .text-item
+                            .text-item__title Рядом с мфк расположен парк
+                            .text-item__description На протяжении всей зоны применено остекление на полную высоту этажа вместе с антресолью, таким образом для посетителей открывается панорамный вид на зеленый кусочек города, что является редкостью в столице.
+
+                        .text-item
+                            .text-item__title Лаконичный и сложносочиненный образ
+                            .text-item__description Игра на простых решениях и акцентных приемах позволяет органично вписать здание в среду, избежав при этом чрезмерной массивности.
+                    .about__image
+                        +img('about.jpg')
+
+    section.shops.slider#shops
+        .shops__inner
+            .container
+                .slider__top.section-title
+                    .slider__title Магазины
+                    .swiper__arrows
+                        .swiper-arrow.swiper-arrow-prev
+                            +img('arrow-prev.svg')
+                        .swiper-arrow.swiper-arrow-next
+                            +img('arrow-next.svg')
+            .swiper
+                .swiper-wrapper
+                    .swiper-slide
+                        .slide__image
+                            +img('shops-1.jpg')
+                    .swiper-slide
+                        .slide__image
+                            +img('shops-2.jpg')
+                    .swiper-slide
+                        .slide__image
+                            +img('shops-3.jpg')
+    section.entertainments.slider#entertainments
+        .shops__inner
+            .container
+                .slider__top.section-title
+                    .slider__title Магазины
+                    .swiper__arrows
+                        .swiper-arrow.swiper-arrow-prev
+                            +img('arrow-prev.svg')
+                        .swiper-arrow.swiper-arrow-next
+                            +img('arrow-next.svg')
+            .swiper
+                .swiper-wrapper
+                    .swiper-slide
+                        .slide__image
+                            +img('entertainments-1.jpg')
+                    .swiper-slide
+                        .slide__image
+                            +img('entertainments-2.jpg')
+                    .swiper-slide
+                        .slide__image
+                            +img('entertainments-3.jpg')
+
+    section.others.slider#others
+        .shops__inner
+            .container
+                .slider__top.section-title
+                    .slider__title Магазины
+                    .swiper__arrows
+                        .swiper-arrow.swiper-arrow-prev
+                            +img('arrow-prev.svg')
+                        .swiper-arrow.swiper-arrow-next
+                            +img('arrow-next.svg')
+            .swiper
+                .swiper-wrapper
+                    .swiper-slide
+                        .slide__image
+                            +img('others-1.jpg')
+                    .swiper-slide
+                        .slide__image
+                            +img('others-2.jpg')
+                    .swiper-slide
+                        .slide__image
+                            +img('others-3.jpg')
+
+    section.scheme#scheme
+        .container
+            .scheme__inner
+                .scheme__title.section-title схема торгового центра
+                .scheme__images
+                    .scheme__images_main.swiper
+                        .search-icon
+                            +img('search.svg')
+                        .floor-number
+                        .swiper-wrapper
+                            .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-1.jpg' data-number= '1')
+                                +img('floor-1.jpg')
+                            .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-2.jpg' data-number= '2')
+                                +img('floor-2.jpg')
+                            .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-3.jpg' data-number= '3')
+                                +img('floor-3.jpg')
+                            .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-4.jpg' data-number= '4')
+                                +img('floor-4.jpg')
+                            .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-5.jpg' data-number= '5')
+                                +img('floor-5.jpg')
+                    .scheme__images_thumbs.swiper
+                        .swiper-wrapper
+                            .swiper-slide
+                                .thumb-floor-number 1 этаж
+                                +img('floor-1.jpg')
+                            .swiper-slide
+                                .thumb-floor-number 2 этаж
+                                +img('floor-2.jpg')
+                            .swiper-slide
+                                .thumb-floor-number 3 этаж
+                                +img('floor-3.jpg')
+                            .swiper-slide
+                                .thumb-floor-number 4 этаж
+                                +img('floor-4.jpg')
+                            .swiper-slide
+                                .thumb-floor-number 5 этаж
+                                +img('floor-5.jpg')
+
+    section.write
+        .container
+            .write__inner
+                .write__title.section-title напишите нам
+                .write__form
+                    form
+                        input(type='text', placeholder='Имя').input
+                        input(type='text', placeholder='Мобильный телефон*').input.phone-mask
+                        input(type='text', placeholder='Электронная почта*').input
+                        textarea(placeholder='Сообщение*').custom-text-area
+                        .form__bottom
+                            button(data-fancybox data-src='#popup-success-request').btn Отправить
+                            .write__agree Нажимая на кнопку «Отправить», вы соглашаетесь с обработкой ваших персональных данных
+
+    section.contacts#contacts
+        .container
+            .contacts__inner
+                .contacts__items
+                    .contacts__item
+                        .contacts__title КАК ДОБРАТЬСЯ
+                        .contacts__text.contacts__text-location
+                            .text__image
+                                +img('location-black.svg')
+                            .text__block
+                                p Москва, ЮВАО, ул. Маршала Чуйкова, д. 3
+                                p Одна минута от м. Кузьминки
+                    .contacts__item.contacts__item-second
+                        .contacts__title связаться с нами
+                        .contacts__text
+                            .text__image
+                                +img('phone-contacts.svg')
+                            .text__block
+                                a(href='tel:88001234567') 8 (800) 123-45-67
+                        .contacts__text
+                            .text__image
+                                +img('mail.svg')
+                            .text__block
+                                a(href='mailto:info@mail.ru') info@mail.ru
+                .contacts__map
+                    script.
+                        let placemarks = [
+                            {
+                                coordinates: [55.70388506902211,37.764985999999965],
+                            }
+                        ];
+                        let centerPoint = [55.70388506902211,37.764985999999965];
+                        let zoomValue = 16;
+                    .map__wrapper
+                        #map
 
 
 
 
 
 
-
-
-
-    //section.shops
-    //    .shops__inner
-    //        .shops__top
-    //            .shops__title.section-title Магазины
-    //    .shops__slider.swiper
-    //        .swiper-wrapper
-    //            .swiper-slide
-    //                .shops__image
-    //                    +img('1.jpg')
-    //            .swiper-slide
-    //                .shops__image
-    //                    +img('1.jpg')
-    //            .swiper-slide
-    //                .shops__image
-    //                    +img('1.jpg')
-    //
-    //
-    //
-    //

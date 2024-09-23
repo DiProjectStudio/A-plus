@@ -1,30 +1,113 @@
-// $(document).ready(function() {
-//
-//     const slider = new Swiper(".shops__slider.swiper", {
-//         slidesPerView: 3.15,
-//         // slidesPerView: 'auto',
-//         spaceBetween: 20,
-//         // observer: true,
-//         // freeMode: true,
-//         // observeParents: true,
-//         navigation: {
-//             nextEl: '.example .slider-arrow--next',
-//             prevEl: '.example .slider-arrow--prev',
-//         },
-//         centeredSlides: true,
-//         // freeMode: true,
-//         loop: true,
-//
-//         // breakpoints: {
-//         //     744: {
-//         //         slidesPerView: 3,
-//         //         spaceBetween: 20,
-//         //     },
-//         //
-//         //     1560: {
-//         //         slidesPerView: 3,
-//         //         spaceBetween: 30,
-//         //     }
-//         // }
-//     });
-// });
+$(document).ready(function () {
+
+
+
+    const thumbs = new Swiper('.scheme__images_thumbs.swiper', {
+        slidesPerView: 5,
+        spaceBetween: 8,
+        breakpoints: {
+        744: {
+            spaceBetween: 10,
+            direction: 'vertical'
+        }
+    }
+    })
+
+
+    const schemeImageSlider = new Swiper('.scheme__images_main.swiper', {
+        slidesPerView: 1,
+        thumbs: {
+            swiper: thumbs
+        },
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        on: {
+            slideChange: function () {
+                updateFloorNumber(this);
+            }
+        }
+    });
+
+    updateFloorNumber(schemeImageSlider);
+
+    function updateFloorNumber(swiper) {
+        const floorNumberElement = document.querySelector('.floor-number');
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        const dataNumber = activeSlide.getAttribute('data-number');
+        floorNumberElement.innerText = `${dataNumber} этаж`;
+    }
+
+    class Sliders {
+        constructor(parent) {
+            this.parent = parent;
+            this.sliderClone();
+            this.sliderInit();
+        }
+
+        sliderInit() {
+            let timeoutId = null;
+            new Swiper(`${this.parent} .swiper`, {
+                slidesPerView: "auto",
+                spaceBetween: 8,
+                loop: true,
+                centeredSlides: true,
+                grabCursor: true,
+                preventInteractionOnTransition: true,
+
+                navigation: {
+                    nextEl: `${this.parent} .swiper-arrow-next`,
+                    prevEl: `${this.parent} .swiper-arrow-prev`,
+                },
+
+                breakpoints: {
+                    744: {
+                        spaceBetween: 10,
+                    },
+
+                    1200: {
+                        spaceBetween: 20,
+                    }
+                },
+
+                on: {
+                    slideChange: function () {
+                        this.slides.removeClass('slide-active');
+                        this.slides[this.activeIndex].classList.add('slide-active');
+                    },
+
+                    slideChangeTransitionStart: function () {
+                        const swiperWrapper = document.querySelector('.swiper-wrapper');
+                        if (timeoutId) {
+                            clearTimeout(timeoutId);
+                        }
+                        swiperWrapper.classList.add('transition-active');
+                        timeoutId = setTimeout(() => {
+                            swiperWrapper.classList.remove('transition-active');
+                        }, 500);
+                    }
+                }
+            });
+        }
+
+        sliderClone() {
+            const allSlides = document.querySelectorAll(`${this.parent} .swiper-slide`);
+            const slidesCount = allSlides.length;
+            let iterationCount = 0;
+            if (slidesCount >= 9 && !slidesCount) {
+                return;
+            }
+            iterationCount = Math.floor(9 / slidesCount);
+            for (let i = 0; i < iterationCount - 1; i++) {
+                allSlides.forEach(slide => {
+                    const slidesParent = slide.parentElement;
+                    let clonedSlide = slide.cloneNode(true);
+                    slidesParent.appendChild(clonedSlide);
+                });
+            }
+        }
+    }
+
+    const sliderShops = new Sliders('.shops');
+    const sliderEntertainments = new Sliders('.entertainments');
+    const sliderOthers = new Sliders('.others');
+});

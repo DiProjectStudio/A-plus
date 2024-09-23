@@ -12,20 +12,20 @@ block header
                     nav
                         ul
                             li
-                                a(href='javascript:void(0)') О нас
+                                a(href='#concepts') О нас
                             li
-                                a(href='javascript:void(0)') магазины
+                                a(href='#shops') магазины
                             li
-                                a(href='javascript:void(0)') рестораны и кафе
+                                a(href='#entertainments') рестораны и кафе
                             li
-                                a(href='javascript:void(0)') развлечения
+                                a(href='#others') развлечения
                             li
-                                a(href='javascript:void(0)') СХЕМА ТЦ
+                                a(href='#scheme') СХЕМА ТЦ
                             li
-                                a(href='javascript:void(0)') КОНТАКТЫ
+                                a(href='#contacts') КОНТАКТЫ
                 .header__actions
                     .header__call-button
-                        button.btn заказать звонок
+                        button(data-fancybox data-src='#popup-request').btn заказать звонок
                     .header__call-image
                         +img('phone.svg')
                     .header__burger#headerMenuToggle

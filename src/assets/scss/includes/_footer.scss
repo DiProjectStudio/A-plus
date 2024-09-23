@@ -1,0 +1,109 @@
+.footer {
+  padding: 30px 0 20px;
+  background: $black;
+  color: $white;
+
+  @include breakpoint(md) {
+    padding: 40px 0 26px;
+  }
+
+  @include breakpoint(xl) {
+    padding: 50px 0 30px;
+  }
+
+  &__inner {
+    display: grid;
+    gap: 8px;
+    @include breakpoint(md) {
+      gap: 40px;
+    }
+
+    @include breakpoint(xl) {
+      gap: 60px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    gap: 30px;
+
+    @include breakpoint(md) {
+      display: flex;
+      justify-content: space-between;
+      gap: unset;
+    }
+  }
+
+  &__bottom {
+    font-size: 12px;
+    display: grid;
+    gap: 8px;
+
+    @include breakpoint(md) {
+      @include flexCenterBetween;
+    }
+
+    @include breakpoint(lg) {
+      font-size: 14px;
+    }
+  }
+
+  &__logo {
+    order: 3;
+    width: 109px;
+    height: 48px;
+
+    @include breakpoint(md) {
+      order: 1;
+    }
+
+    @include breakpoint(lg) {
+      width: 146px;
+      height: 65px;
+    }
+  }
+
+  &__nav {
+    order: 1;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    display: grid;
+    gap: 12px;
+
+    @include breakpoint(md) {
+      order: 2;
+    }
+
+    &-title {
+      font-size: 16px;
+      letter-spacing: -0.8px;
+
+      @include breakpoint(lg) {
+        font-size: 20px;
+      }
+    }
+
+    nav ul li a {
+      letter-spacing: -0.7px;
+      font-size: 14px;
+    }
+
+    nav ul {
+      display: grid;
+      gap: 12px;
+    }
+  }
+
+  &__socials {
+    order: 2;
+    @include flexAlignCenter;
+    gap: 30px;
+
+    @include breakpoint(md) {
+      align-items: baseline;
+      order: 3;
+    }
+  }
+}
