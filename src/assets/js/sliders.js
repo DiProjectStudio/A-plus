@@ -1,16 +1,73 @@
 $(document).ready(function () {
+    // Оносвные слайдеры
+    class Sliders {
+        constructor(parent) {
+            this.parent = parent;
+            this.sliderClone();
+            this.sliderInit();
+        }
+
+        sliderInit() {
+            let swiperSpeed = 600
+            document.documentElement.style.setProperty('--swiper-speed-half', `${swiperSpeed / 2}ms`)
+            new Swiper(`${this.parent} .swiper`, {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                loop: true,
+                spaceBetween: 8,
+                speed: swiperSpeed,
+                preventInteractionOnTransition: true,
+                grabCursor: true,
+                followFinger: false,
+                breakpoints: {
+                    744: {
+                        spaceBetween: 10
+                    },
+                    1200: {
+                        spaceBetween: 20
+                    }
+                },
+                navigation: {
+                    nextEl: `${this.parent} .swiper-arrow-next`,
+                    prevEl: `${this.parent} .swiper-arrow-prev`,
+                }
+            })
+        }
+
+        sliderClone() {
+            const allSlides = document.querySelectorAll(`${this.parent} .swiper-slide`);
+            const slidesCount = allSlides.length;
+            let iterationCount = 0;
+            if (slidesCount >= 9 && !slidesCount) {
+                return;
+            }
+            iterationCount = Math.floor(9 / slidesCount);
+            for (let i = 0; i < iterationCount - 1; i++) {
+                allSlides.forEach(slide => {
+                    const slidesParent = slide.parentElement;
+                    let clonedSlide = slide.cloneNode(true);
+                    slidesParent.appendChild(clonedSlide);
+                });
+            }
+        }
+    }
+
+    const sliderShops = new Sliders('.shops');
+    const sliderEntertainments = new Sliders('.entertainments');
+    const sliderOthers = new Sliders('.others');
 
 
+    // Схемы
 
     const thumbs = new Swiper('.scheme__images_thumbs.swiper', {
         slidesPerView: 5,
         spaceBetween: 8,
         breakpoints: {
-        744: {
-            spaceBetween: 10,
-            direction: 'vertical'
+            744: {
+                spaceBetween: 10,
+                direction: 'vertical'
+            }
         }
-    }
     })
 
 
@@ -36,78 +93,4 @@ $(document).ready(function () {
         const dataNumber = activeSlide.getAttribute('data-number');
         floorNumberElement.innerText = `${dataNumber} этаж`;
     }
-
-    class Sliders {
-        constructor(parent) {
-            this.parent = parent;
-            this.sliderClone();
-            this.sliderInit();
-        }
-
-        sliderInit() {
-            let timeoutId = null;
-            new Swiper(`${this.parent} .swiper`, {
-                slidesPerView: "auto",
-                spaceBetween: 8,
-                loop: true,
-                centeredSlides: true,
-                grabCursor: true,
-                preventInteractionOnTransition: true,
-
-                navigation: {
-                    nextEl: `${this.parent} .swiper-arrow-next`,
-                    prevEl: `${this.parent} .swiper-arrow-prev`,
-                },
-
-                breakpoints: {
-                    744: {
-                        spaceBetween: 10,
-                    },
-
-                    1200: {
-                        spaceBetween: 20,
-                    }
-                },
-
-                on: {
-                    slideChange: function () {
-                        this.slides.removeClass('slide-active');
-                        this.slides[this.activeIndex].classList.add('slide-active');
-                    },
-
-                    slideChangeTransitionStart: function () {
-                        const swiperWrapper = document.querySelector('.swiper-wrapper');
-                        if (timeoutId) {
-                            clearTimeout(timeoutId);
-                        }
-                        swiperWrapper.classList.add('transition-active');
-                        timeoutId = setTimeout(() => {
-                            swiperWrapper.classList.remove('transition-active');
-                        }, 500);
-                    }
-                }
-            });
-        }
-
-        sliderClone() {
-            const allSlides = document.querySelectorAll(`${this.parent} .swiper-slide`);
-            const slidesCount = allSlides.length;
-            let iterationCount = 0;
-            if (slidesCount >= 9 && !slidesCount) {
-                return;
-            }
-            iterationCount = Math.floor(9 / slidesCount);
-            for (let i = 0; i < iterationCount - 1; i++) {
-                allSlides.forEach(slide => {
-                    const slidesParent = slide.parentElement;
-                    let clonedSlide = slide.cloneNode(true);
-                    slidesParent.appendChild(clonedSlide);
-                });
-            }
-        }
-    }
-
-    const sliderShops = new Sliders('.shops');
-    const sliderEntertainments = new Sliders('.entertainments');
-    const sliderOthers = new Sliders('.others');
 });

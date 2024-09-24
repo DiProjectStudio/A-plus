@@ -14,14 +14,20 @@ body.overflow-hidden {
   overflow: hidden;
 }
 
+body.compensate-for-scrollbar {
+  overflow: auto!important;
+  padding-right: 0!important;
+}
+
+
 body b {
   font-weight: 700;
   color: inherit;
 }
 
 ::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  //width: 0;
+  //height: 0;
 
   @include breakpoint(lg) {
     //width: 20px;
@@ -257,62 +263,88 @@ a {
 /// SWIPER SLIDER
 /////////////////////
 
+section.slider {
+  background-color: $gray;
+}
+//
+//.swiper-wrapper.transition-active {
+//  transition: transform 300ms ease !important;
+//}
+//
+//.swiper-slide {
+//  --slideActive: calc(100% / 2 - 14px);
+//  width: calc(33.3333333333% - var(--slideActive) / 20)
+//}
+//
+//@media(min-width: 744px) {
+//  .swiper-slide {
+//    --slideActive: calc(100% / 2 - 25px)
+//  }
+//}
+//
+//@media(min-width: 1200px) {
+//  .swiper-slide {
+//    --slideActive: calc(100% / 2 - 30px)
+//  }
+//}
+//
+//@media(min-width: 1440px) {
+//  .swiper-slide {
+//    width: calc(33.3333333333% - var(--slideActive) / 4)
+//  }
+//}
+//
+//.swiper-slide.swiper-slide-active.slide-active {
+//  width: var(--slideActive);
+//  transition: width .4s ease
+//}
+//
+//.slide__image {
+//  aspect-ratio: 1
+//}
+//
+//.slide__image img {
+//  height: 100%;
+//}
 
-//.swiper-pagination {
-//  align-self: center;
-//  background-color: transparent;
-//  height: 4px;
-//  width: 61px;
-//  @include flexCenterCenter;
-//  position: absolute;
-//  --swiper-pagination-bottom: 24px;
-//}
-//
-//.swiper-pagination-bullet {
-//  --swiper-pagination-bullet-horizontal-gap: 7px;
-//  --swiper-pagination-bullet-border-radius: 0;
-//  --swiper-pagination-bullet-height: 4px;
-//  --swiper-pagination-bullet-width: 60px;
-//  --swiper-pagination-bullet-inactive-opacity: 1;
-//  //background: $opacity-white-72;
-//
-//  @include breakpoint(md) {
-//    --swiper-pagination-bullet-horizontal-gap: 14px;
-//  }
-//  @include breakpoint(lg) {
-//    --swiper-pagination-bullet-horizontal-gap: 16px;
-//  }
-//
-//  &:hover {
-//    background: $white;
-//
-//    .swiper-pagination-bullet-active {
-//      //background: $opacity-pink-72;
-//    }
-//  }
-//
-//  &.swiper-pagination-bullet-active {
-//    //background: $pink;
-//  }
-//}
-//
-//.swiper-nav {
-//  position: absolute;
-//  @include flexAlignCenter;
-//  z-index: 1;
-//  gap: 8px;
-//
-//  @include breakpoint(md) {
-//    gap: 20px;
-//  }
-//  @include breakpoint(xl) {
-//    gap: 40px;
-//  }
 
-//  .swiper-nav-arrow {
-//    width: 60px;
-//    height: 56px;
-//    cursor: pointer;
-//    @include flexCenterCenter;
-//  }
-//}
+.slider__top {
+  @include flexCenterBetween;
+  margin-bottom: 30px;
+
+
+  .swiper__arrows {
+    @include flexAlignCenter;
+    gap: 30px;
+
+    .swiper-arrow {
+      cursor: pointer;
+    }
+  }
+}
+
+:root {
+  --page-padding-inline: 10px;
+  --swiper-speed-half: 150ms; /* default swiper speed - 300 */
+  --swiper-max-height: 688px; /* default slide max-height 688px */
+  --swiper-default-slides-ratio: 0.8; /* default slide is 80% smaller than active slide */
+}
+
+@media (min-width: 744px) {
+  :root {
+    --page-padding-inline: 20px;
+  }
+}
+
+.swiper-slide {
+  --slide-size-active: min(var(--swiper-max-height), calc( ( 100vw - var(--page-padding-inline) * 2 ) / 12 * 6 ));
+  --slide-size: calc(var(--slide-size-active) * var(--swiper-default-slides-ratio));
+  width: var(--slide-size);
+}
+.swiper-slide-active {
+  --slide-size: var(--slide-size-active);
+}
+.slide__image {
+  height: var(--slide-size);
+  transition: height var(--swiper-speed-half);
+}
