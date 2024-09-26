@@ -547,7 +547,7 @@ section:not(:first-of-type) {
         cursor: pointer;
 
         @include breakpoint(md) {
-          padding: 0 0 0 6px;
+          padding: 10px;
           @include flexAlignCenter;
           gap: 20px;
         }
@@ -712,6 +712,11 @@ section:not(:first-of-type) {
 
         &.contacts__text-location {
           align-items: baseline;
+
+          .text__image img{
+            margin-top: -5px;
+          }
+
         }
 
         .text__block {

@@ -31,7 +31,7 @@ $(document).ready(function () {
                 navigation: {
                     nextEl: `${this.parent} .swiper-arrow-next`,
                     prevEl: `${this.parent} .swiper-arrow-prev`,
-                }
+                },
             })
         }
 
@@ -45,8 +45,6 @@ $(document).ready(function () {
             }
 
             iterationCount = Math.floor(9 / slidesCount);
-            console.log(iterationCount);
-
             for (let i = 0; i < iterationCount - 1; i++) {
                 allSlides.forEach(slide => {
                     const slidesParent = slide.parentElement;
@@ -57,9 +55,9 @@ $(document).ready(function () {
         }
     }
 
-    const sliderShops = new Sliders('.shops');
-    const sliderEntertainments = new Sliders('.entertainments');
-    const sliderOthers = new Sliders('.others');
+    new Sliders('.shops');
+    new Sliders('.entertainments');
+    new Sliders('.others');
 
 
     // Схемы

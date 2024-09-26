@@ -322,20 +322,6 @@ section.slider {
   }
 }
 
-.shops, .entertainments, .others {
-  .swiper {
-    padding-bottom: 22px;
-
-    @include breakpoint(md) {
-      padding-bottom: 27px;
-    }
-
-    @include breakpoint(xl) {
-      padding-bottom: 35px;
-    }
-  }
-}
-
 :root {
   --page-padding-inline: 10px;
   --swiper-speed-half: 150ms; /* default swiper speed - 300 */
@@ -357,6 +343,25 @@ section.slider {
 
 .swiper-slide-active {
   --slide-size: var(--slide-size-active);
+}
+
+.shops, .entertainments, .others {
+  --slide-size-active: min(var(--swiper-max-height), calc((100vw - var(--page-padding-inline) * 2) / 12 * 6));
+
+  .swiper {
+    padding-bottom: 22px;
+    height: calc(var(--slide-size-active) + 22px);
+
+    @include breakpoint(md) {
+      padding-bottom: 27px;
+      height: calc(var(--slide-size-active) + 27px);
+    }
+
+    @include breakpoint(xl) {
+      padding-bottom: 35px;
+      height: calc(var(--slide-size-active) + 35px);
+    }
+  }
 }
 
 .slide__image {
