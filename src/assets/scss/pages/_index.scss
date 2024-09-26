@@ -547,7 +547,7 @@ section:not(:first-of-type) {
         cursor: pointer;
 
         @include breakpoint(md) {
-          padding: 10px;
+          padding: 20px;
           @include flexAlignCenter;
           gap: 20px;
         }
