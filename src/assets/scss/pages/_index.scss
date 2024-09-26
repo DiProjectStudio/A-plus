@@ -41,39 +41,38 @@ section:not(:first-of-type) {
     height: 100%;
     background: linear-gradient(260deg, rgba(0, 0, 0, 0.00) 56.92%, rgba(0, 0, 0, 0.40) 97.39%), linear-gradient(187deg, rgba(0, 0, 0, 0.00) 38.45%, rgba(0, 0, 0, 0.80) 94.77%);
     pointer-events: none;
+    z-index: 0;
   }
 
   img {
+    position: absolute;
     object-fit: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 }
 
 .main__inner {
-  position: absolute;
   color: $white;
-  top: 0;
-  width: 100%;
   height: 100%;
-  z-index: 1;
-}
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 
-.main__text {
-  position: absolute;
-  bottom: 56px;
-  color: $white;
-
-  @include breakpoint(md) {
-
-  }
-
-  & > div {
+  .main__text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
 
     @include breakpoint(md) {
-      display: flex;
-      align-items: flex-end;
+      display: unset;
     }
 
-    .text__location {
+    .main__location {
       @include flexAlignCenter;
       gap: 8px;
       font-size: 14px;
@@ -81,69 +80,75 @@ section:not(:first-of-type) {
       font-weight: 500;
       line-height: 140%; /* 19.6px */
       text-decoration-line: underline;
-      margin-bottom: 10px;
 
       @include breakpoint(md) {
+        float: left;
+        max-width: 130px;
         flex-direction: column;
         gap: 4px;
-        align-items: unset;
-        max-width: 120px;
+        font-size: 16px;
+        align-items: flex-start;
+        margin-right: 2%;
       }
 
       @include breakpoint(lg) {
-        gap: 8px;
+        font-size: 18px;
+        max-width: 160px;
       }
 
-      img {
-        width: 16px;
-        height: 20px;
+      @include breakpoint(xl) {
+        font-size: 20px;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px
       }
     }
 
-    .text__title-first {
+    .main__title {
+      font-size: 28px;
+      line-height: 100%; /* 52px */
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      font-style: normal;
+      font-weight: 500;
+
       @include breakpoint(md) {
-        margin-left: 30px;
+        font-size: 52px;
+        padding-top: 20px;
       }
 
+      @include breakpoint(lg) {
+        font-size: 90px;
+        padding: 0;
+      }
     }
   }
 
-  .text__title {
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%; /* 28px */
-    letter-spacing: -1.4px;
-    text-transform: uppercase;
-
-    @include breakpoint(md) {
-      font-size: 52px;
-      letter-spacing: -2.6px;
-    }
-
-    @include breakpoint(lg) {
-      font-size: 90px;
-      letter-spacing: -4.5px;
-    }
-  }
-
-  .text__description {
-    margin-top: 30px;
-    width: 243px;
+  .main__description {
     font-size: 16px;
     font-style: normal;
     line-height: 140%; /* 22.4px */
+    max-width: 243px;
+    margin-bottom: 56px;
 
     @include breakpoint(md) {
-      width: 286px;
-      margin-left: calc(50% + 10px);
+      margin-left: calc(100% / 12 * 6);
     }
 
     @include breakpoint(lg) {
       font-size: 18px;
+      max-width: 276px;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 20px;
+      max-width: 334px;
     }
   }
 }
+
 
 .concepts {
   .concepts__title {
@@ -152,7 +157,7 @@ section:not(:first-of-type) {
       width: 100%;
 
       @include breakpoint(md) {
-        text-align: end;
+        margin-left: calc(100% / 12 * 6);
       }
     }
   }
@@ -364,10 +369,7 @@ section:not(:first-of-type) {
     }
 
     .about__text-items {
-
-      @include breakpoint(md) {
-
-      }
+      display: grid;
 
       .text-item {
         border-top: 1px solid $black;

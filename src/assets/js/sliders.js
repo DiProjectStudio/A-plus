@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    // Оносвные слайдеры
+
+    // Оcновные слайдеры
     class Sliders {
         constructor(parent) {
             this.parent = parent;
@@ -38,10 +39,14 @@ $(document).ready(function () {
             const allSlides = document.querySelectorAll(`${this.parent} .swiper-slide`);
             const slidesCount = allSlides.length;
             let iterationCount = 0;
-            if (slidesCount >= 9 && !slidesCount) {
+
+            if (slidesCount >= 9 || !slidesCount) {
                 return;
             }
+
             iterationCount = Math.floor(9 / slidesCount);
+            console.log(iterationCount);
+
             for (let i = 0; i < iterationCount - 1; i++) {
                 allSlides.forEach(slide => {
                     const slidesParent = slide.parentElement;
@@ -89,8 +94,10 @@ $(document).ready(function () {
 
     function updateFloorNumber(swiper) {
         const floorNumberElement = document.querySelector('.floor-number');
-        const activeSlide = swiper.slides[swiper.activeIndex];
-        const dataNumber = activeSlide.getAttribute('data-number');
-        floorNumberElement.innerText = `${dataNumber} этаж`;
+        if (floorNumberElement) {
+            const activeSlide = swiper.slides[swiper.activeIndex];
+            const dataNumber = activeSlide.getAttribute('data-number');
+            floorNumberElement.innerText = `${dataNumber} этаж`;
+        }
     }
 });

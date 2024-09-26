@@ -5,14 +5,25 @@
   left: 0;
   top: 0;
   background: $white;
+  transition: .3s ease-in-out;
+  box-shadow: 0 0 8.9px 3px rgba(0, 0, 0, 0.05);
+
+  @include breakpoint(md) {
+    padding: 14px 0;
+  }
+
+  @include breakpoint(lg) {
+    padding: 22px 0;
+  }
 
   &__inner {
     @include flexCenterBetween;
   }
 
-  &__logo {
+  &__logo svg{
     width: 79px;
     height: 32px;
+    @include flexCenterCenter;
 
     @include breakpoint(md) {
       width: 102px;
@@ -36,8 +47,8 @@
     top: -100vh;
     left: 0;
     z-index: 9;
-    transition: top 0.5s ease-in-out;
-    //animation: slideUp .5s;
+    //transition: top 0.5s ease-in-out;
+    animation: slideUp .5s;
 
     @include breakpoint(lg) {
       position: static;

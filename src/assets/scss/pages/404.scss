@@ -1,0 +1,59 @@
+.error {
+  letter-spacing: -0.05em;
+  text-align: center;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: calc(100vh - 200px);
+
+  &__title {
+    font-size: 120px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 120px */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include breakpoint(md) {
+      margin-bottom: 30px;
+    }
+
+    @include breakpoint(lg) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 20px */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+    @include breakpoint(md) {
+      font-size: 24px;
+    }
+
+    @include breakpoint(lg) {
+      font-size: 28px;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 32px;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 19.6px */
+
+    @include breakpoint(xl) {
+      font-size: 16px;
+    }
+  }
+}

@@ -10,16 +10,14 @@ block main
     section.main
             .main__image
                 +img('main.jpg')
-                .main__inner
-                    .container
+                .container
+                    .main__inner
                         .main__text
-                            div
-                                .text__location
-                                    +img('location.svg')
-                                    p Одна минута от м. Кузьминки
-                                p.text__title.text__title-first ваше пространство
-                            p.text__title.text__title-second для бизнеса и отдыха
-                            p.text__description Уникальные возможности для арендаторов и незабываемые впечатления для посетителей
+                            .main__location
+                                include assets/images/location.svg
+                                p Одна минута от м. Кузьминки
+                            h1.main__title Ваше пространство для бизнеса и отдыха
+                        .main__description Уникальные возможности для арендаторов и незабываемые впечатления для посетителей
 
     section.concepts#concepts
         .container
@@ -113,12 +111,15 @@ block main
                     .swiper-slide
                         .slide__image
                             +img('shops-1.jpg')
+                            p Silkworm
                     .swiper-slide
                         .slide__image
                             +img('shops-2.jpg')
+                            p Оптик сити
                     .swiper-slide
                         .slide__image
                             +img('shops-3.jpg')
+                            p Супермаркет «ДА»
 
     section.entertainments.slider#entertainments
         .shops__inner
@@ -135,12 +136,15 @@ block main
                     .swiper-slide
                         .slide__image
                             +img('entertainments-1.jpg')
+                            p Vasilchuki chaihona №1
                     .swiper-slide
                         .slide__image
                             +img('entertainments-2.jpg')
+                            p A4 kids
                     .swiper-slide
                         .slide__image
                             +img('entertainments-3.jpg')
+                            p Harats Pub
 
     section.others.slider#others
         .shops__inner
@@ -157,12 +161,15 @@ block main
                     .swiper-slide
                         .slide__image
                             +img('others-1.jpg')
+                            p Студия маникюра
                     .swiper-slide
                         .slide__image
                             +img('others-2.jpg')
+                            p Фитнес-клуб «DDX»
                     .swiper-slide
                         .slide__image
                             +img('others-3.jpg')
+                            p Мегафон
 
     section.scheme#scheme
         .container
@@ -174,10 +181,10 @@ block main
                             +img('search.svg')
                         .floor-number
                         .swiper-wrapper
-                            .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-1.jpg' data-number= '1')
-                                +img('floor-1.jpg')
-                            .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-2.jpg' data-number= '2')
-                                +img('floor-2.jpg')
+                            .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-1.png' data-number= '1')
+                                +img('floor-1.png')
+                            .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-2.png' data-number= '2')
+                                +img('floor-2.png')
                             .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-3.jpg' data-number= '3')
                                 +img('floor-3.jpg')
                             .swiper-slide(data-fancybox='gallery' data-src='assets/images/floor-4.jpg' data-number= '4')
@@ -188,10 +195,10 @@ block main
                         .swiper-wrapper
                             .swiper-slide
                                 .thumb-floor-number 1 этаж
-                                +img('floor-1.jpg')
+                                +img('floor-1.png')
                             .swiper-slide
                                 .thumb-floor-number 2 этаж
-                                +img('floor-2.jpg')
+                                +img('floor-2.png')
                             .swiper-slide
                                 .thumb-floor-number 3 этаж
                                 +img('floor-3.jpg')
