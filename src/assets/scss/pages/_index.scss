@@ -291,15 +291,37 @@ section:not(:first-of-type) {
 
       li {
         @include flexAlignCenter;
-        gap: 10px;
         color: $black;
         font-size: 14px;
         font-style: normal;
         line-height: 140%; /* 19.6px */
 
         @include breakpoint(lg) {
-          gap: 14px;
           font-size: 18px;
+        }
+
+        span {
+          @include flexAlignCenter;
+          gap: 10px;
+
+          @include breakpoint(lg) {
+            gap: 14px;
+          }
+
+          @include breakpoint(xl) {
+            gap: 16px;
+          }
+
+          &::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            display: block;
+            background-image: url("../../images/right-arrow.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            flex-shrink: 0;
+          }
         }
 
         img {
