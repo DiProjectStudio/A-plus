@@ -161,88 +161,87 @@ section:not(:first-of-type) {
       }
     }
   }
+}
 
-  .concepts__items {
-    display: grid;
-    gap: 8px;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 20px;
+.concepts__items {
+  display: grid;
+  gap: 8px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 20px;
 
-    @include breakpoint(md) {
-      gap: 10px;
-    }
-
-    @include breakpoint(lg) {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: unset;
-      gap: 20px;
-    }
-
-    .concepts__item {
-      display: grid;
-      gap: 8px;
-      justify-items: center;
-      border: 1px solid $black;
-      padding: 12px 0;
-
-      @include breakpoint(md) {
-        @include flexCenterCenter;
-        gap: 14px;
-        padding: 18px 0;
-      }
-
-      .item__image {
-        width: 22px;
-        height: 22px;
-      }
-
-      .item__text {
-        width: min-content;
-        text-align: center;
-        color: #000;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        letter-spacing: -0.7px;
-        text-transform: uppercase;
-
-        @include breakpoint(md) {
-          width: unset;
-          font-size: 16px;
-        }
-      }
-    }
+  @include breakpoint(md) {
+    gap: 10px;
   }
 
-  .concepts__images {
-    display: grid;
-    grid-template-rows: repeat(3, 150px);
-    gap: 8px;
+  @include breakpoint(lg) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: unset;
+    gap: 20px;
+  }
+}
+
+.concepts__item {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  border: 1px solid $black;
+  padding: 12px 0;
+
+  @include breakpoint(md) {
+    @include flexCenterCenter;
+    gap: 14px;
+    padding: 18px 0;
+  }
+
+  .item__image {
+    width: 22px;
+    height: 22px;
+  }
+
+  .item__text {
+    width: min-content;
+    text-align: center;
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.7px;
+    text-transform: uppercase;
 
     @include breakpoint(md) {
-      grid-template-rows: repeat(2, 139px);
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      width: unset;
+      font-size: 16px;
+    }
+  }
+}
+.concepts__images {
+  display: grid;
+  grid-template-rows: repeat(3, 150px);
+  gap: 8px;
+
+  @include breakpoint(md) {
+    grid-template-rows: repeat(2, 139px);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  @include breakpoint(lg) {
+    gap: 20px;
+    grid-template-rows: repeat(2, 226px);
+  }
+
+  .concepts__image {
+    img {
+      object-fit: cover;
     }
 
-    @include breakpoint(lg) {
-      gap: 20px;
-      grid-template-rows: repeat(2, 226px);
-    }
+    @include breakpoint(md) {
 
-    .concepts__image {
-      img {
-        object-fit: cover;
-      }
-
-      @include breakpoint(md) {
-
-        &:first-child {
-          grid-row: 1 / 3;
-          grid-column: 1 / 2;
-        }
+      &:first-child {
+        grid-row: 1 / 3;
+        grid-column: 1 / 2;
       }
     }
   }
@@ -269,8 +268,6 @@ section:not(:first-of-type) {
     @include breakpoint(xl) {
       grid-template-rows: 242px 440px;
     }
-
-
   }
 }
 
@@ -612,46 +609,46 @@ section:not(:first-of-type) {
   &__title {
     width: min-content;
   }
+}
 
-  .write__form {
+.write__form {
+  display: grid;
+  gap: 8px;
+
+  form {
     display: grid;
-    gap: 8px;
 
-    form {
-      display: grid;
+    .custom-text-area {
+      height: 60px;
 
-      .custom-text-area {
-        height: 60px;
-
-        @include breakpoint(md) {
-          height: 70px;
-        }
-      }
-
-      .form__bottom {
-        margin-top: 20px;
-        display: grid;
-        gap: 8px;
-
-        @include breakpoint(md) {
-          gap: 14px;
-          grid-template-columns: 3fr 9fr;
-          align-items: center;
-        }
-
-        @include breakpoint(lg) {
-          grid-template-columns: 4fr 8fr;
-        }
-
-        .write__agree {
-          color: $gray-2;
-          font-size: 12px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 140%; /* 16.8px */
-        }
+      @include breakpoint(md) {
+        height: 70px;
       }
     }
+  }
+}
+
+.form__bottom {
+  margin-top: 20px;
+  display: grid;
+  gap: 8px;
+
+  @include breakpoint(md) {
+    gap: 14px;
+    grid-template-columns: 3fr 9fr;
+    align-items: center;
+  }
+
+  @include breakpoint(lg) {
+    grid-template-columns: 4fr 8fr;
+  }
+
+  .write__agree {
+    color: $gray-2;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 16.8px */
   }
 }
 
@@ -682,155 +679,145 @@ section:not(:first-of-type) {
       gap: 30px;
     }
   }
+}
 
-  .contacts__items {
-    .contacts__item {
-      display: grid;
-      padding: 14px 0;
-      border-top: 1px solid $black;
-      gap: 14px;
-      grid-template-columns: 1fr;
+.contacts__map {
+  width: 100%;
+  height: 250px;
+  @include breakpoint(md) {
+    height: 300px;
+  }
+
+  @include breakpoint(lg) {
+    height: 456px;
+  }
+
+  @include breakpoint(xl) {
+    height: 550px;
+  }
+
+  .map__wrapper {
+    width: 100%;
+    height: 100%;
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.contacts__items {
+  .contacts__item {
+    display: grid;
+    padding: 14px 0;
+    border-top: 1px solid $black;
+    gap: 14px;
+    grid-template-columns: 1fr;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: space-between;
+      padding: 18px 0;
+      align-items: center;
+    }
+
+    @include breakpoint(lg) {
+      padding: 22px 0;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $black;
+    }
+
+    .contacts__title {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%; /* 24px */
+      letter-spacing: -1.2px;
+      text-transform: uppercase;
 
       @include breakpoint(md) {
-        grid-template-columns: repeat(2, 1fr);
-        justify-content: space-between;
-        padding: 18px 0;
-        align-items: center;
+        font-size: 24px;
+        margin-bottom: 0;
       }
 
       @include breakpoint(lg) {
-        padding: 22px 0;
+        font-size: 28px;
       }
 
-      &:last-child {
-        border-bottom: 1px solid $black;
+      @include breakpoint(xl) {
+        font-size: 32px;
+      }
+    }
+
+    .contacts__text {
+      @include flexAlignCenter;
+      gap: 10px;
+
+      &.contacts__text-location {
+        align-items: baseline;
+
+        .text__image img{
+          margin-top: -5px;
+        }
+
       }
 
-      .contacts__title {
-        font-size: 24px;
+      .text__block {
+        font-size: 14px;
         font-style: normal;
         font-weight: 500;
-        line-height: 100%; /* 24px */
-        letter-spacing: -1.2px;
+        line-height: 120%; /* 16.8px */
+        letter-spacing: -0.7px;
         text-transform: uppercase;
 
-        @include breakpoint(md) {
-          font-size: 24px;
-          margin-bottom: 0;
-        }
-
-        @include breakpoint(lg) {
-          font-size: 28px;
-        }
-
-        @include breakpoint(xl) {
-          font-size: 32px;
-        }
-      }
-
-      .contacts__text {
-        @include flexAlignCenter;
-        gap: 10px;
-
-        &.contacts__text-location {
-          align-items: baseline;
-
-          .text__image img{
-            margin-top: -5px;
-          }
-
-        }
-
-        .text__block {
-          font-size: 14px;
+        p:last-child {
           font-style: normal;
-          font-weight: 500;
-          line-height: 120%; /* 16.8px */
-          letter-spacing: -0.7px;
-          text-transform: uppercase;
-
-          p:last-child {
-            font-style: normal;
-            font-weight: 400;
-            line-height: 140%; /* 19.6px */
-            text-transform: none;
-            margin-top: 10px;
-          }
-        }
-
-        & ~ .contacts__text {
+          font-weight: 400;
+          line-height: 140%; /* 19.6px */
+          text-transform: none;
           margin-top: 10px;
         }
       }
 
-      &.contacts__item-second {
+      & ~ .contacts__text {
+        margin-top: 10px;
+      }
+    }
+
+    &.contacts__item-second {
+
+      @include breakpoint(md) {
+        grid-template-rows: repeat(2, 1fr);
+        align-items: center;
+      }
+
+      .contacts__title {
+        margin-bottom: 4px;
 
         @include breakpoint(md) {
-          grid-template-rows: repeat(2, 1fr);
-          align-items: center;
+          grid-row: 1 / 3;
+          grid-column: 1 / 2;
+          margin-bottom: 0;
         }
-
-        .contacts__title {
-          margin-bottom: 4px;
-
-          @include breakpoint(md) {
-            grid-row: 1 / 3;
-            grid-column: 1 / 2;
-            margin-bottom: 0;
-          }
-        }
-
-        .contacts__text {
-          margin-top: 0;
-          @include breakpoint(md) {
-            &:first-child {
-              grid-row: 1 / 2;
-              grid-column: 2 / 3;
-            }
-
-            &:last-child {
-              grid-row: 2 / 3;
-              grid-column: 2 / 3;
-            }
-          }
-        }
-
-
       }
 
+      .contacts__text {
+        margin-top: 0;
+        @include breakpoint(md) {
+          &:first-child {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+          }
 
-    }
-  }
-
-  .contacts__map {
-    width: 100%;
-    height: 250px;
-    @include breakpoint(md) {
-      height: 300px;
-    }
-
-    @include breakpoint(lg) {
-      height: 456px;
-    }
-
-    @include breakpoint(xl) {
-      height: 550px;
-    }
-
-    .map__wrapper {
-
-      width: 100%;
-      height: 100%;
-
-      #map {
-        width: 100%;
-        height: 100%;
-
-        .ymaps-2-1-79-map, .ymaps-2-1-79-inner-panes {
-
+          &:last-child {
+            grid-row: 2 / 3;
+            grid-column: 2 / 3;
+          }
         }
       }
     }
   }
-
 }
